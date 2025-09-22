@@ -5,7 +5,7 @@
     android:id="@+id/trois"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ED1F1E1E">
+    android:background="#FFFFFF">
 
     <Button
         android:id="@+id/three"
@@ -182,10 +182,10 @@
         android:layout_height="87dp"
         android:layout_marginStart="124dp"
         android:layout_marginTop="204dp"
-        android:backgroundTint="#E91E63"
+        android:backgroundTint="#FF9800"
         android:fontFamily="casual"
         android:onClick="eraseClick"
-        android:text="supprimer"
+        android:text="suppr"
         android:textColor="#FFFFFF"
         android:textColorLink="#FFFFFF"
         android:textSize="48sp"
@@ -345,12 +345,12 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/ecran"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="408dp"
+        android:layout_height="59dp"
         android:layout_marginTop="129dp"
         android:layout_marginBottom="134dp"
         android:height="100dp"
-        android:backgroundTint="#FFFFFF"
+        android:backgroundTint="#000000"
         android:focusable="auto"
         android:fontFamily="casual"
         android:gravity="right"
@@ -365,7 +365,7 @@
         android:password="false"
         android:phoneNumber="false"
         android:textAlignment="textEnd"
-        android:textColor="#EAFFFFFF"
+        android:textColor="#4D4B4B"
         android:textSize="40sp"
         android:textStyle="bold"
         android:verticalScrollbarPosition="right"

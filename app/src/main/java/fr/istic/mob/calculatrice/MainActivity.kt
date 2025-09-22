@@ -2,15 +2,20 @@ package fr.istic.mob.calculatrice
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import net.objecthunter.exp4j.Expression
+import net.objecthunter.exp4j.ExpressionBuilder
+import kotlin.math.exp
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var textInput : EditText;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +32,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun numberClick(view: View?) {
+
+
+    fun result(expression: Expression){
+        println("Résultat : " + expression.evaluate())
+        }
+
+    fun numberClick(view: View?){
         val buttonText = (view as? android.widget.Button)?.text?.toString() ?: return
         val currentText = textInput.text.toString()
         val selectionStart = textInput.selectionStart.coerceAtLeast(0)
@@ -48,6 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun resetClick(view: View?){
+        textInput.setText("")
         println("AC");
     }
 
@@ -58,23 +70,14 @@ class MainActivity : AppCompatActivity() {
         if (cursorPos > 0) {
             val newText = StringBuilder(text).deleteCharAt(cursorPos - 1).toString()
             textInput.setText(newText)
-            textInput.setSelection(cursorPos - 1)
+            textInput.setSelection(cursorPos - 1) // Permet de mettre le curseur à droite
         }
     }
 
-    fun moinsClick(view: View?){
-        println("-");
-    }
-    fun plusClick(view: View?){
-        println("+");
-    }
-    fun diviseClick(view: View?){
-        println("/");
-    }
-    fun mutipleClick(view: View?){
-        println("x");
-    }
     fun equalClick(view: View?){
-        println("=");
+        val text = textInput.text.toString()
+        val resultat = ExpressionBuilder( text).build().evaluate().toString()
+        textInput.setText(resultat)
+
     }
 }
